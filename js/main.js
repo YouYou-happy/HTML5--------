@@ -11,6 +11,9 @@ var lastTime; //上一帧执行的时间
 var deltaTime;//两帧之间的时间差
 
 var bgPic = new Image();
+
+var ane;
+
 document.body.onload = game;
 function game() {
 	init();
@@ -31,6 +34,9 @@ function init()
 
 	canWidth = can1.width;
 	canHeight = can1.height;
+
+	ane = new aneObj();
+	ane.init();
 }
 function gameloop()
 {
@@ -40,4 +46,5 @@ function gameloop()
 	lastTime = now;//更新上次的时间
 
 	drawBackground();
+	ane.draw();
 }
