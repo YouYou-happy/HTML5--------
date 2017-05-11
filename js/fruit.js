@@ -76,6 +76,10 @@ fruitObj.prototype.born = function(i)
 		this.fruitType[i] = "orange";
 	}
 }
+fruitObj.prototype.dead = function(i)
+{
+	this.alive[i] = false;
+}
 /*fruitObj.prototype.update = function()
 {
 	var num = 0;
