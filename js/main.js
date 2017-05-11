@@ -17,6 +17,9 @@ var fruit;
 
 var mom;
 
+var mx;
+var my;//定义鼠标变量
+
 document.body.onload = game;
 function game() {
 	init();
@@ -33,6 +36,9 @@ function init()
 	can2 = document.getElementById("canvas2");//background, ane, fruits
 	ctx2 = can2.getContext('2d');    //画布上的画笔来画画
 
+	//捕捉鼠标,鼠标移动时即可监测
+	can1.addEventListener('mousemove', onMouseMove, false);
+
 	bgPic.src = "./src/background.jpg";
 
 	canWidth = can1.width;
@@ -46,6 +52,9 @@ function init()
 
 	mom = new momObj();
 	mom.init();
+
+	mx = canWidth * 0.5;
+	my = canHeight * 0.5;
 }
 function gameloop()
 {
@@ -61,4 +70,12 @@ function gameloop()
 
 	ctx1.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
+}
+function onMouseMove(e)     //
+{
+	if(e.offSetX || e.layerX)
+	{
+		mx = e.offSetX == undefined ? e.layerX : e.offSetX;
+		my = e.offSetY == undefined ? e.layerY : e.offSetY;
+	}
 }
