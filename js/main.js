@@ -62,6 +62,7 @@ function gameloop()
 	var now = Date.now();
 	deltaTime = now - lastTime;
 	lastTime = now;//更新上次的时间
+	if(deltaTime > 40) deltaTime = 40;
 
 	drawBackground();
 	ane.draw();
