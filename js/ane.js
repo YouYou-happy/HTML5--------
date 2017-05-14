@@ -15,18 +15,18 @@ aneObj.prototype.init = function()
 }
 aneObj.prototype.draw = function()
 {
-	ctx2.save();
-	ctx2.globalAlpha = 0.6;
-	ctx2.lineWidth = 20;
-	ctx2.lineCap = "round";
-	ctx2.strokeStyle = "#3b154e";
+	ctx1.save();
+	ctx1.globalAlpha = 0.6;
+	ctx1.lineWidth = 20;
+	ctx1.lineCap = "round";
+	ctx1.strokeStyle = "#3b154e";
 	for (var i = 0; i < this.num; i++)
 	{
 		//beginPath, moveTo, lineTo, stroke, strokeStyle, lineWidth, lineCap, globalAlpha
-		ctx2.beginPath();
-		ctx2.moveTo(this.x[i], canHeight);
-		ctx2.lineTo(this.x[i], canHeight - this.len[i]);
-		ctx2.stroke();
+		ctx1.beginPath();
+		ctx1.moveTo(this.x[i], canHeight);
+		ctx1.lineTo(this.x[i], canHeight - this.len[i]);
+		ctx1.stroke();
 	}
-	ctx2.restore();
+	ctx1.restore();
 }

@@ -23,7 +23,7 @@ fruitObj.prototype.init = function()
 		//this.born(i);//初始化时所有的果实都出生
 
 	}
-	this.orange.src = "./src/orange.png";
+	this.orange.src = "./src/fruit.png";
 	this.blue.src = "./src/blue.png";//加载两张图片
 }
 fruitObj.prototype.draw = function()
@@ -43,14 +43,14 @@ fruitObj.prototype.draw = function()
 					var pic = this.orange;
 				}
 				if(this.l[i] <= 14)
-			{
-				this.l[i] += this.spd[i] * deltaTime;
-			}
-			else
-			{
-				this.y[i] -= this.spd[i] * 6 * deltaTime;
-			}
-			ctx2.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] - this.l[i] * 0.5, this.l[i], this.l[i]);
+				{
+					this.l[i] += this.spd[i] * deltaTime;
+				}
+				else
+				{
+					this.y[i] -= this.spd[i] * 6 * deltaTime;
+				}
+			ctx1.drawImage(pic, this.x[i] - this.l[i] * 0.5, this.y[i] - this.l[i] * 0.5, this.l[i], this.l[i]);
 			if (this.y[i] < 10) 
 			{
 				this.alive[i] = false;
@@ -101,6 +101,7 @@ function fruitMonitor()
 		sendFruit();
 		return;
 	}
+}
 	function sendFruit()
 	{
 		for (var i = 0; i < fruit.num; i++) 

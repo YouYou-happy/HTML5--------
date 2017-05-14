@@ -22,6 +22,7 @@ var mx;
 var my;//定义鼠标变量
 
 var babyTail = [];
+var babyEye = [];
 
 document.body.onload = game;
 function game() {
@@ -40,12 +41,12 @@ function init()
 	ctx2 = can2.getContext('2d');    //画布上的画笔来画画
 
 	//捕捉鼠标,鼠标移动时即可监测
-	can1.addEventListener('mousemove', onMouseMove, false);
+	can2.addEventListener('mousemove', onMouseMove, false);
 
 	bgPic.src = "./src/background.jpg";
 
-	canWidth = can1.width;
-	canHeight = can1.height;
+	canWidth = can2.width;
+	canHeight = can2.height;
 
 	ane = new aneObj();
 	ane.init();
@@ -67,6 +68,12 @@ function init()
 		babyTail[i] = new Image();
 		babyTail[i].src = "./src/babyTail" + i + ".png";
 	}
+	for (var i = 0; i < 2; i++)
+	{
+		babyEye[i] = new Image();
+		babyEye[i].src = "./src/babyEye" + i + ".png";
+	}
+}
 function gameloop()
 {
 	window.requestAnimFrame(gameloop);//setInterval,setTimeout,frame per second
@@ -80,7 +87,7 @@ function gameloop()
 	fruitMonitor();
 	fruit.draw();
 
-	ctx1.clearRect(0, 0, canWidth, canHeight);
+	ctx2.clearRect(0, 0, canWidth, canHeight);
 	mom.draw();
 	momFruitsCollision();
 	baby.draw();

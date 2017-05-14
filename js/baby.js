@@ -9,13 +9,17 @@ var babyObj = function()
 
 	this.babyTailTimer = 0;
 	this.babyTailCount = 0;
+
+	this.babyEyeTimer = 0;
+	this.babyEyeCount = 0;
+	this.babyEyeInterval = 1000;
 }
 babyObj.prototype.init = function()
 {
 	this.x = canWidth * 0.5 - 50;
 	this.y = canHeight * 0.5 + 50;
 	this.angle = 0;
-	this.babyEye.src = "./src/babyEye0.png";
+	//this.babyEye.src = "./src/babyEye0.png";
 	this.babyBody.src = "./src/babyFade0.png";
 	//this.babyTail.src = "./src/babyTail0.png";
 }
@@ -41,17 +45,35 @@ babyObj.prototype.draw = function()
 		this.babyTailTimer %= 50;
 	}
 
+	//baby eye
+	this.babyEyeTimer += deltaTime;
+	if(this.babyEyeTimer > babyEyeInterval)
+	{
+		this.babyEyeCount = (this.babyEyeCount + 1) % 2;
+		this.babyEyeTimer %= this.babyEyeInterval;
+
+		if (this.babyEyeCount == 0)
+		{
+			this.babyEyeInterval = Math.random() * 1500 + 2000;//[0, 1)
+		}
+		else
+		{
+			this.babyEyeInterval = 200;
+		}
+	}
+
 	//ctx1
-	ctx1.save();
+	ctx2.save();
 	//translate()转移原点坐标
-	ctx1.translate(this.x, this.y);
-	ctx1.rotate(this.angle);
+	ctx2.translate(this.x, this.y);
+	ctx2.rotate(this.angle);
 	
 	var babyTailCount = this.babyTailCount;
 	//先画尾巴，再画身体，再画眼睛
-	ctx1.drawImage(babyTail[babyTailCount], -babyTail[babyTailCount].width * o.5 + 23, -babyTail[babyTailCount].height * 0.5);
-	ctx1.drawImage(this.babyBody, -this.babyBody.width * o.5, -this.babyBody.height * 0.5);
-	ctx1.drawImage(this.babyEye, -this.babyEye.width * o.5, -this.babyEye.height * 0.5);
+	ctx2.drawImage(babyTail[babyTailCount], -babyTail[babyTailCount].width * 0.5 + 23, -babyTail[babyTailCount].height * 0.5);
+	ctx2.drawImage(this.babyBody, -this.babyBody.width * 0.5, -this.babyBody.height * 0.5);
+	var babyEyeCount = this.babyEyeCount;
+	ctx2.drawImage(babyEye[babyEyeCount], -babyEye[babyEyeCount].width * 0.5, -babyEye[babyEyeCount].height * 0.5);
 
-	ctx1.restore();
+	ctx2.restore();
 }
