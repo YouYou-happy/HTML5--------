@@ -23,6 +23,7 @@ var my;//定义鼠标变量
 
 var babyTail = [];
 var babyEye = [];
+var babyBody = [];
 
 document.body.onload = game;
 function game() {
@@ -72,6 +73,12 @@ function init()
 	{
 		babyEye[i] = new Image();
 		babyEye[i].src = "./src/babyEye" + i + ".png";
+	}
+
+	for (var i = 0; i < 20; i++)
+	{
+		babyBody[i] = new Image();
+		babyBody[i].src = "./src/babyFade" + i + ".png";
 	}
 }
 function gameloop()

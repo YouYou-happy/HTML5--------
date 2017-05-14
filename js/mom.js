@@ -26,7 +26,7 @@ momObj.prototype.draw = function()
 	//Math.atan2(y, x) 反正切来计算
 	var deltaY = my - this.y;
 	var deltaX = mx - this.x;
-	var beta = Math.atan2(deltaY, deltaX);//返回值[-PI, PI]
+	var beta = Math.atan2(deltaY, deltaX) + Math.PI;//返回值[-PI, PI]
 
 	//lerp angle 大鱼的角度跟随 鼠标的角度
 	this.angle = lerpAngle(beta, this.angle, 0.6);
