@@ -21,6 +21,8 @@ var baby;
 var mx;
 var my;//定义鼠标变量
 
+var babyTail = [];
+
 document.body.onload = game;
 function game() {
 	init();
@@ -59,7 +61,12 @@ function init()
 
 	mx = canWidth * 0.5;
 	my = canHeight * 0.5;
-}
+
+	for (var i = 0; i < 8; i++) 
+	{
+		babyTail[i] = new Image();
+		babyTail[i].src = "./src/babyTail" + i + ".png";
+	}
 function gameloop()
 {
 	window.requestAnimFrame(gameloop);//setInterval,setTimeout,frame per second
