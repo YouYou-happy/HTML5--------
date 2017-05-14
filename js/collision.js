@@ -11,6 +11,11 @@ function momFruitsCollision()
 			{
 				//fruit eaten
 				fruit.dead(i);
+				data.fruitNum++;
+				if(fruit.fruitType[i] == "blue")//blue 
+				{
+					data.double = 2;
+				}
 			}
 		}
 	}
@@ -23,6 +28,8 @@ function momBabyCollision()
 	{
 		//baby recover
 		baby.babyBodyCount = 0;//大鱼碰到小鱼，小鱼就恢复到第0帧（满血复活
+		//data => 0
+		data.reset();
 	}
 
 }
