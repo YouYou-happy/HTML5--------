@@ -15,3 +15,14 @@ function momFruitsCollision()
 		}
 	}
 }
+//mom baby collision
+function momBabyCollision()
+{
+	var l = calLength2(mom.x, mom.y, baby.x, baby.y);
+	if(l < 900)
+	{
+		//baby recover
+		baby.babyBodyCount = 0;//大鱼碰到小鱼，小鱼就恢复到第0帧（满血复活
+	}
+
+}
