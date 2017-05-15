@@ -32,6 +32,8 @@ var momBodyBlue = [];
 
 var data;
 
+var wave;
+
 document.body.onload = game;
 function game() {
 	init();
@@ -108,6 +110,9 @@ function init()
 	}
 	ctx2.font = "30px Verdana";
 	ctx2.textAlign = "center";//left, center, right
+
+	wave = new waveObj();
+	wave.init();
 }
 function gameloop()
 {
@@ -129,6 +134,7 @@ function gameloop()
 	momBabyCollision();
 
 	data.draw();
+	wave.draw();
 }
 function onMouseMove(e)     //鼠标控制大鱼
 {
