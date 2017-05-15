@@ -27,6 +27,8 @@ var babyBody = [];
 
 var momTail = [];
 var momEye = [];
+var momBodyOra = [];
+var momBodyBlue = [];
 
 var data;
 
@@ -97,6 +99,13 @@ function init()
 		momEye[i].src = "./src/bigEye" + i + ".png";
 	}
 	data = new dataObj();
+	for(var i = 0; i < 8; i++)
+	{
+		momBodyOra[i] = new Image();
+		momBodyBlue[i] = new Image();
+		momBodyOra[i].src = "./src/bigSwim" + i + ".png";
+		momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
+	}
 }
 function gameloop()
 {
