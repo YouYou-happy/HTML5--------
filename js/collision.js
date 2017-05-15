@@ -32,8 +32,10 @@ function momBabyCollision()
 		//baby recover
 		baby.babyBodyCount = 0;//大鱼碰到小鱼，小鱼就恢复到第0帧（满血复活
 		//data => 0
-		data.reset();
+		//data.reset();
 		mom.momBodyCount = 0;
+		//score upgrade
+		data.addScore();
 	}
 
 }

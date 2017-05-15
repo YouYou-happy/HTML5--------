@@ -106,6 +106,8 @@ function init()
 		momBodyOra[i].src = "./src/bigSwim" + i + ".png";
 		momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
 	}
+	ctx2.font = "30px Verdana";
+	ctx2.textAlign = "center";//left, center, right
 }
 function gameloop()
 {
