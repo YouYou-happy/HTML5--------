@@ -130,11 +130,14 @@ function gameloop()
 
 	data.draw();
 }
-function onMouseMove(e)     //
+function onMouseMove(e)     //鼠标控制大鱼
 {
-	if(e.offSetX || e.layerX)
+	if(!data.gameOver)
 	{
-		mx = e.offSetX == undefined ? e.layerX : e.offSetX;
-		my = e.offSetY == undefined ? e.layerY : e.offSetY;
+		if(e.offSetX || e.layerX)
+		{
+			mx = e.offSetX == undefined ? e.layerX : e.offSetX;
+			my = e.offSetY == undefined ? e.layerY : e.offSetY;
+		}
 	}
 }

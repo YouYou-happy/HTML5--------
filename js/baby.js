@@ -75,7 +75,7 @@ babyObj.prototype.draw = function()
 		{
 			this.babyBodyCount = 10;
 			//game over
-
+			data.gameOver = true;
 		}
 	}
 	//ctx1
