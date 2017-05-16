@@ -18,14 +18,22 @@ waveObj.prototype.init = function()
 }
 waveObj.prototype.draw = function()
 {
+	ctx2.save();
+	ctx2.lineWidth = 2;
+	ctx2.shadowBlur = 10;
+	ctx2.shadowColor = "white";
 	for (var i = 0; i < this.num; i++) 
 	{
 		if (this.alive[i])
 		{
-			this.r[i] += deltaTime * 0.1;
-			if(this.r[i] > 100)
+			this.r[i] += deltaTime * 0.04;
+			if(this.r[i] > 50)
+			{
 				this.alive[i] = false;
-			var alpha = 1 - this.r[i] / 100;
+				break;
+			}
+			//因为若r>50则alpha变成负值，[0,1]范围外的值均默认为1
+			var alpha = 1 - this.r[i] / 50;//透明度与圆半径成反比
 			//api
 			ctx2.beginPath();
 			ctx2.arc(this.x[i], this.y[i], this.r[i], 0, Math.PI * 2);
@@ -35,6 +43,7 @@ waveObj.prototype.draw = function()
 			//draw
 		}
 	}
+	ctx2.restore();
 }
 waveObj.prototype.born = function(x, y)
 {
@@ -42,7 +51,7 @@ waveObj.prototype.born = function(x, y)
 		if(!this.alive[i])
 		{
 			this.alive[i] = true;
-			this.r[i] = 20;
+			this.r[i] = 10;
 			this.x[i] = x;
 			this.y[i] = y;
 			//born
