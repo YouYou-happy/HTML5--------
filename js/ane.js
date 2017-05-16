@@ -36,7 +36,8 @@ aneObj.prototype.draw = function()
 		//beginPath, moveTo, lineTo, stroke, strokeStyle, lineWidth, lineCap, globalAlpha
 		ctx1.beginPath();
 		ctx1.moveTo(this.rootx[i], canHeight);
-		ctx1.quadraticCurveTo(this.rootx[i], canHeight - 100, this.headx[i] + l * this.amp[i], this.heady[i]);
+		this.headx[i] = this.rootx[i] + l * this.amp[i];
+		ctx1.quadraticCurveTo(this.rootx[i], canHeight - 100, this.headx[i], this.heady[i]);
 		//ctx1.lineTo(this.x[i], canHeight - this.len[i]);
 		ctx1.stroke();
 	}
