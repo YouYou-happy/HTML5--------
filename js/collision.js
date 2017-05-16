@@ -43,6 +43,8 @@ function momBabyCollision()
 			mom.momBodyCount = 0;
 			//score upgrade
 			data.addScore();
+			//draw halo
+			halo.born(baby.x, baby.y);
 		}
 	}
 }

@@ -33,6 +33,7 @@ var momBodyBlue = [];
 var data;
 
 var wave;
+var halo;
 
 document.body.onload = game;
 function game() {
@@ -113,6 +114,9 @@ function init()
 
 	wave = new waveObj();
 	wave.init();
+
+	halo = new haloObj();
+	halo.init();
 }
 function gameloop()
 {
@@ -135,6 +139,7 @@ function gameloop()
 
 	data.draw();
 	wave.draw();
+	halo.draw();
 }
 function onMouseMove(e)     //鼠标控制大鱼
 {
